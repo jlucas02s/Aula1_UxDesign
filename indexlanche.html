@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeuFome Lanches | Hamburgueria tradicional de Cuiabá</title>
+<meta name="description" content="DeuFome Lanches: a hamburgueria tradicional de Cuiabá. Onion, Baguncinha, Completo, X-Bacon e o lendário DeuFome Monstro.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c8201c;--wine:#3d0b08;--mustard:#ffb81c;--sun:#ffd25e;--bun:#c97a1e;--white:#fff8ea;
+--display:'Bowlby One','Impact',sans-serif;--body:'Outfit',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--wine);color:var(--white);overflow-x:hidden;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:10px 5vw;background:rgba(61,11,8,.82);backdrop-filter:blur(10px)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.25rem}
+.brand img{width:46px;height:46px}
+nav ul{display:flex;gap:28px;list-style:none;font-weight:600}
+nav ul a:hover{color:var(--mustard)}
+.btn{display:inline-block;background:var(--mustard);color:var(--wine);font-weight:800;padding:14px 28px;border-radius:999px;box-shadow:0 6px 0 #b27800,0 14px 24px rgba(0,0,0,.35);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(3px);box-shadow:0 3px 0 #b27800,0 8px 16px rgba(0,0,0,.35)}
+.btn.red{background:var(--red);color:#fff;box-shadow:0 6px 0 #7e100d,0 14px 24px rgba(0,0,0,.35)}
+.nav-cta{padding:10px 20px;box-shadow:0 4px 0 #b27800}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:2vw;padding:110px 5vw 60px;background:radial-gradient(circle at 70% 45%,#e0372f 0,var(--red) 38%,#8d1411 100%);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:70px;background:var(--wine);clip-path:polygon(0 100%,0 40%,5% 70%,10% 30%,16% 75%,22% 35%,28% 70%,34% 25%,40% 72%,46% 35%,52% 78%,58% 30%,64% 70%,70% 28%,76% 74%,82% 34%,88% 72%,94% 30%,100% 65%,100% 100%)}
+.hero h1{font-size:clamp(3rem,8vw,7rem);color:var(--mustard);text-shadow:0 4px 0 #7e100d,0 10px 0 rgba(0,0,0,.18);transform:rotate(-2deg)}
+.hero h1 span{display:block;color:#fff}
+.hero p{max-width:34rem;margin:26px 0 34px;font-size:1.2rem}
+.hero .actions{display:flex;gap:16px;flex-wrap:wrap}
+.stage{position:relative;perspective:1000px;display:grid;place-items:center;aspect-ratio:1}
+.tilt{position:relative;width:min(100%,560px);transform-style:preserve-3d;transition:transform .12s ease-out;animation:float 5s ease-in-out infinite}
+.tilt .main{filter:drop-shadow(0 40px 30px rgba(0,0,0,.45));transform:translateZ(60px)}
+.disc{position:absolute;inset:6%;border-radius:50%;background:var(--mustard);transform:translateZ(-80px);box-shadow:0 0 0 18px rgba(255,184,28,.25),0 0 0 40px rgba(255,184,28,.12)}
+@keyframes float{50%{translate:0 -18px}}
+.orb{position:absolute;border-radius:50%;transform-style:preserve-3d}
+.o-tom{width:84px;height:84px;top:6%;left:2%;background:radial-gradient(circle at 30% 28%,#ff9a8a,#e32b1f 45%,#8a0f08);transform:translateZ(150px);box-shadow:0 22px 24px rgba(0,0,0,.35);animation:bob 4s ease-in-out infinite}
+.o-ch{width:70px;height:70px;bottom:10%;left:4%;background:radial-gradient(circle at 30% 28%,#fff0a8,#ffc22b 50%,#b27800);border-radius:18px;transform:translateZ(120px) rotate(18deg);box-shadow:0 20px 22px rgba(0,0,0,.35);animation:bob 5s -1s ease-in-out infinite}
+.o-let{width:64px;height:64px;top:14%;right:2%;background:radial-gradient(circle at 30% 28%,#c7f47c,#5fbf2f 50%,#2d6e14);transform:translateZ(130px);box-shadow:0 20px 22px rgba(0,0,0,.35);animation:bob 4.5s -2s ease-in-out infinite}
+.o-on{width:96px;height:96px;bottom:2%;right:6%;background:none;border:16px solid #e0a43a;transform:translateZ(170px);box-shadow:0 20px 22px rgba(0,0,0,.35),inset 0 6px 8px rgba(0,0,0,.3);animation:bob 5.5s -3s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -22px}}
+
+/* CARROSSEL 3D */
+section{padding:100px 5vw}
+.head{text-align:center;margin-bottom:30px}
+.head h2{font-size:clamp(2.2rem,5vw,4rem);color:var(--mustard)}
+.head p{opacity:.85;margin-top:12px;font-size:1.1rem}
+.carousel{--w:340px;--h:440px;position:relative;height:calc(var(--h) + 80px);perspective:1500px;touch-action:pan-y;cursor:grab;user-select:none}
+.carousel:active{cursor:grabbing}
+.ring{position:absolute;left:50%;top:40px;width:var(--w);height:var(--h);margin-left:calc(var(--w)/-2);transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.card{position:absolute;inset:0;border-radius:28px;padding:20px 22px;text-align:center;background:linear-gradient(160deg,#ffd25e,#ffb81c 60%,#f29b00);color:var(--wine);box-shadow:inset 0 0 0 4px rgba(255,255,255,.4),0 30px 50px rgba(0,0,0,.45);backface-visibility:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:filter .6s}
+.card img{width:100%;height:56%;object-fit:contain;filter:drop-shadow(0 14px 10px rgba(0,0,0,.3))}
+.card h3{font-size:1.6rem}
+.card p{font-size:.98rem;font-weight:600}
+.card.dim{filter:brightness(.55) saturate(.8)}
+.ctrl{display:flex;justify-content:center;gap:18px;margin-top:20px;align-items:center}
+.ctrl button{width:56px;height:56px;border-radius:50%;border:0;background:var(--red);color:#fff;font-size:1.5rem;cursor:pointer;box-shadow:0 5px 0 #7e100d;transition:transform .12s}
+.ctrl button:active{transform:translateY(3px);box-shadow:0 2px 0 #7e100d}
+.dots{display:flex;gap:8px}
+.dots i{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:.3s}
+.dots i.on{background:var(--mustard);transform:scale(1.4)}
+
+/* SOBRE com cubo 3D */
+.about{background:var(--mustard);color:var(--wine);display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;position:relative}
+.about h2{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:20px;color:var(--red)}
+.about p{font-size:1.15rem;max-width:34rem;margin-bottom:14px;font-weight:600}
+.facts{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.facts b{background:var(--wine);color:var(--sun);padding:10px 18px;border-radius:14px;font-weight:800}
+.cubewrap{display:grid;place-items:center;perspective:900px;min-height:380px}
+.cube{--s:min(230px,52vw);width:var(--s);height:var(--s);position:relative;transform-style:preserve-3d;animation:spin 16s linear infinite}
+.cube:hover{animation-play-state:paused}
+.cube div{position:absolute;inset:0;background:var(--red);border:5px solid var(--wine);border-radius:18px;display:grid;place-items:center;padding:14px;backface-visibility:visible}
+.cube div:nth-child(1){transform:translateZ(calc(var(--s)/2))}
+.cube div:nth-child(2){transform:rotateY(90deg) translateZ(calc(var(--s)/2))}
+.cube div:nth-child(3){transform:rotateY(180deg) translateZ(calc(var(--s)/2))}
+.cube div:nth-child(4){transform:rotateY(-90deg) translateZ(calc(var(--s)/2))}
+.cube div:nth-child(5){transform:rotateX(90deg) translateZ(calc(var(--s)/2));background:var(--wine)}
+.cube div:nth-child(6){transform:rotateX(-90deg) translateZ(calc(var(--s)/2));background:var(--wine)}
+@keyframes spin{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+.cubewrap::after{content:"";width:200px;height:26px;border-radius:50%;background:rgba(61,11,8,.3);filter:blur(10px);margin-top:50px}
+
+/* CARDÁPIO RÁPIDO (cards 3D hover) */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;max-width:1150px;margin:0 auto;perspective:900px}
+.mini{background:#5a130e;border-radius:24px;padding:22px;text-align:center;transition:transform .2s;transform-style:preserve-3d;border:2px solid rgba(255,184,28,.35)}
+.mini img{transform:translateZ(40px);margin-bottom:10px;filter:drop-shadow(0 16px 10px rgba(0,0,0,.4))}
+.mini h3{font-size:1.2rem;color:var(--mustard);transform:translateZ(30px)}
+.mini p{font-size:.92rem;opacity:.85;transform:translateZ(20px)}
+
+/* CTA + FOOTER */
+.cta{text-align:center;background:var(--red);position:relative}
+.cta h2{font-size:clamp(2.4rem,6vw,5rem);color:var(--mustard);text-shadow:0 5px 0 #7e100d}
+.cta p{margin:18px auto 32px;max-width:32rem;font-size:1.15rem}
+footer{padding:36px 5vw;text-align:center;font-size:.95rem;background:#240604}
+footer img{width:80px;margin:0 auto 10px}
+footer a{color:var(--mustard);font-weight:600}
+
+/* RESPONSIVO */
+@media(max-width:900px){
+ nav ul{display:none}
+ .hero,.about{grid-template-columns:1fr;text-align:center}
+ .hero{padding-top:100px}
+ .hero p,.about p{margin-left:auto;margin-right:auto}
+ .hero .actions,.facts{justify-content:center}
+ .stage{max-width:430px;margin:0 auto;width:100%}
+ .o-tom,.o-ch,.o-let,.o-on{scale:.7}
+ .carousel{--w:270px;--h:380px}
+ .card h3{font-size:1.35rem}.card p{font-size:.88rem}
+ section{padding:80px 5vw}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#inicio"><img src="img/logo.png" alt="Logo DeuFome Lanches">DeuFome</a>
+  <ul><li><a href="#cardapio">Lanches</a></li><li><a href="#sobre">Nossa história</a></li><li><a href="#todos">Cardápio</a></li></ul>
+  <a class="btn nav-cta" href="#pedido">Pedir agora</a>
+</nav>
+
+<header class="hero" id="inicio">
+  <div>
+    <h1>Deu fome?<span>Deu DeuFome!</span></h1>
+    <p>A hamburgueria tradicional de Cuiabá. Pão macio, carne no ponto e lanches que você pede de novo.</p>
+    <div class="actions"><a class="btn" href="#pedido">Fazer meu pedido</a><a class="btn red" href="#cardapio">Ver os lanches</a></div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="tilt" id="tilt">
+      <div class="disc"></div>
+      <img class="main" src="img/monstro.png" alt="DeuFome Monstro">
+      <span class="orb o-tom"></span><span class="orb o-ch"></span><span class="orb o-let"></span><span class="orb o-on"></span>
+    </div>
+  </div>
+</header>
+
+<section id="cardapio">
+  <div class="head"><h2>Escolha o seu</h2><p>Arraste, toque ou use as setas para girar o cardápio.</p></div>
+  <div class="carousel" id="carousel" aria-roledescription="carrossel" aria-label="Lanches da DeuFome">
+    <div class="ring" id="ring"></div>
+  </div>
+  <div class="ctrl">
+    <button id="prev" aria-label="Lanche anterior">&#8249;</button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Próximo lanche">&#8250;</button>
+  </div>
+</section>
+
+<section class="about" id="sobre">
+  <div>
+    <h2>Tradição que mora em Cuiabá</h2>
+    <p>A DeuFome Lanches nasceu da vontade de servir o hambúrguer que a gente gosta de comer: feito na hora, com ingrediente bom e recheio sem economia.</p>
+    <p>Do Onion ao DeuFome Monstro, cada lanche é montado do jeito que cuiabano gosta.</p>
+    <div class="facts"><b>Feito na hora</b><b>Carne suculenta</b><b>Sabor de casa</b></div>
+  </div>
+  <div class="cubewrap">
+    <div class="cube">
+      <div><img src="img/onion.png" alt="Onion"></div>
+      <div><img src="img/completo.png" alt="Completo"></div>
+      <div><img src="img/xbacon.png" alt="X-Bacon"></div>
+      <div><img src="img/baguncinha.png" alt="Baguncinha"></div>
+      <div><img src="img/logo.png" alt=""></div>
+      <div><img src="img/logo.png" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section id="todos">
+  <div class="head"><h2>Todos os lanches</h2><p>Passe o mouse para sentir o 3D.</p></div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="cta" id="pedido">
+  <h2>Bateu a fome?</h2>
+  <p>Chame a gente no WhatsApp e peça o seu lanche.</p>
+  <a class="btn" href="https://wa.me/5565999999999?text=Oi!%20Quero%20fazer%20um%20pedido%20na%20DeuFome" target="_blank" rel="noopener">Pedir pelo WhatsApp</a>
+</section>
+
+<footer>
+  <img src="img/logo.png" alt="DeuFome Lanches">
+  <p>DeuFome Lanches · Cuiabá, MT</p>
+  <p>Instagram <a href="#">@deufomelanches</a></p>
+</footer>
+
+<script>
+const lanches=[
+ {img:'onion',nome:'Onion',desc:'Hambúrguer, queijo e anéis de cebola empanados e crocantes.'},
+ {img:'baguncinha',nome:'Baguncinha Simples',desc:'O clássico: carne, queijo, alface e tomate no pão macio.'},
+ {img:'completo',nome:'Completo',desc:'Carne, presunto, queijo, bacon, ovo, alface e tomate.'},
+ {img:'xbacon',nome:'X-Bacon',desc:'Carne suculenta, queijo derretido e bacon em dobro.'},
+ {img:'monstro',nome:'DeuFome Monstro',desc:'Três carnes, queijos, bacon e ovo. Só para quem tem coragem.'}
+];
+const ring=document.getElementById('ring'),dots=document.getElementById('dots'),grid=document.getElementById('grid');
+const n=lanches.length,step=360/n;let cur=0,rot=0,timer;
+
+lanches.forEach((l,i)=>{
+  ring.insertAdjacentHTML('beforeend',`<article class="card"><img src="img/${l.img}.png" alt="${l.nome}" draggable="false"><h3>${l.nome}</h3><p>${l.desc}</p></article>`);
+  dots.insertAdjacentHTML('beforeend',`<i data-i="${i}" role="button" aria-label="Ir para ${l.nome}"></i>`);
+  grid.insertAdjacentHTML('beforeend',`<article class="mini"><img src="img/${l.img}.png" alt="${l.nome}" loading="lazy"><h3>${l.nome}</h3><p>${l.desc}</p></article>`);
+});
+const cards=[...ring.children];
+
+function layout(){
+  const w=cards[0].offsetWidth,r=Math.round((w/2+24)/Math.tan(Math.PI/n));
+  cards.forEach((c,i)=>c.style.transform=`rotateY(${i*step}deg) translateZ(${r}px)`);
+  ring.dataset.r=r;update();
+}
+function update(){
+  const r=ring.dataset.r;
+  ring.style.transform=`translateZ(${-r}px) rotateY(${-rot*step}deg)`;
+  cur=((rot%n)+n)%n;
+  cards.forEach((c,i)=>c.classList.toggle('dim',i!==cur));
+  [...dots.children].forEach((d,i)=>d.classList.toggle('on',i===cur));
+}
+const go=d=>{rot+=d;update();restart()};
+const restart=()=>{clearInterval(timer);timer=setInterval(()=>{rot++;update()},3800)};
+document.getElementById('next').onclick=()=>go(1);
+document.getElementById('prev').onclick=()=>go(-1);
+dots.onclick=e=>{const i=e.target.dataset.i;if(i==null)return;let d=i-cur;if(d>n/2)d-=n;if(d<-n/2)d+=n;go(d)};
+addEventListener('keydown',e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+
+/* arrastar / deslizar */
+const car=document.getElementById('carousel');let sx=null;
+car.addEventListener('pointerdown',e=>{sx=e.clientX});
+addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)go(dx<0?1:-1)});
+car.addEventListener('mouseenter',()=>clearInterval(timer));
+car.addEventListener('mouseleave',restart);
+addEventListener('resize',layout);
+layout();restart();
+
+/* hero 3D segue o mouse */
+const stage=document.getElementById('stage'),tilt=document.getElementById('tilt');
+stage.addEventListener('pointermove',e=>{
+  const b=stage.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+  tilt.style.transform=`rotateY(${x*28}deg) rotateX(${-y*28}deg)`;
+});
+stage.addEventListener('pointerleave',()=>tilt.style.transform='');
+
+/* cards 3D do grid */
+grid.querySelectorAll('.mini').forEach(c=>{
+  c.addEventListener('pointermove',e=>{
+    const b=c.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+    c.style.transform=`rotateY(${x*18}deg) rotateX(${-y*18}deg) scale(1.03)`;
+  });
+  c.addEventListener('pointerleave',()=>c.style.transform='');
+});
+</script>
+</body>
+</html>
